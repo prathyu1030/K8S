@@ -7,12 +7,12 @@ metadata:
 spec:
  replicas: 3
  selector:
- matchlabels:
+ matchLabels:
    type: webserver
  template:
    metadata:
     name: mypod
-    label:
+    labels:
     type: webserver
    spec:
      containers:
