@@ -7,7 +7,7 @@ spec:
   minReadySeconds: 10
   strategy:
     type: RollingUpdate
-     rollingUpdate:
+    rollingUpdate:
        maxUnavailable: 1
        maxSurge: 1
   selector:
