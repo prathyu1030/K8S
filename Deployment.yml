@@ -7,31 +7,29 @@ spec:
   minReadySeconds: 10
   strategy:
     type: RollingUpdate
-	rollingUpdate:
-	    maxUnavailable: 1
-	    maxSurge: 1
-	selector:
-      matchLabels:
-        app: kubeserve
+     rollingUpdate:
+       maxUnavailable: 1
+       maxSurge: 1
+  selector:
+    matchLabels:
+      app: kubeserve
   template:
-      metadata:
-        name: kubeserve
-        labels: 
-          app: kubeserve
-  spec:
-    containers:
-      - name: app
-        image: kubeserve: v1	
-
- ..........
+    metadata:
+      name: kubeserve
+      labels: 
+        app: kubeserve
+    spec:
+      containers:
+       - name: app
+         image:  leaddevops/kubeserve:v1	
 kind: Service
 apiVersion: v1
 metadata:
-   name: kubeserve-svc
+  name: kubeserve-svc
 spec:
   type: NodePort
-  ports: 80
-    -port: 80
-    targetPort: 80
+  ports: 
+    - targetPort: 80
+      port: 80
   selector:
     app: kubeserve
